@@ -1,0 +1,227 @@
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Mohamed Essam Ahmed</title>
+
+    <link rel="stylesheet" href="./css/fontawesome.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="login-system">
+
+        <div class="login-container" id="login-container">
+            <div class="form-container sign-up-container">
+                <form id="register-from">
+                    <h2>Create Account</h2>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="nameSignUp" placeholder="Name">
+                        <label for="nameSignUp">Name</label>
+                    </div>
+                    <div id="nameSignupInvalid" class=" d-none">
+                        <span class="text-danger">
+                            Name must start with an uppercase letter - limits: 3 words (3-10 letters each).
+                        </span>
+                    </div>
+
+                    <div class="gender-radio d-flex justify-content-center">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input male" type="radio" name="gender" id="maleSignUp"
+                                value="male">
+                            <label class="form-check-label" for="maleSignUp">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input female" type="radio" name="gender" id="femaleSignUp"
+                                value="female">
+                            <label class="form-check-label" for="femaleSignUp">Female</label>
+                        </div>
+                    </div>
+                    <div id="genderInvalid" class=" d-none">
+                        <span class="text-danger">
+                            please select a gender.
+                        </span>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="emailSignUp" placeholder="Email">
+                        <label for="emailSignUp">E-mail / Username</label>
+                    </div>
+                    <div id="emailSignUpInvalid" class=" d-none">
+                        <span class="text-danger">
+                            Enter a valid E-mail or a username between 3 and 20 letters.
+                        </span>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="passwordSignUp" placeholder="Password">
+                        <label for="passwordSignUp">Password</label>
+                    </div>
+                    <div id="passwordSignUpInvalid" class=" d-none">
+                        <span class="text-danger">
+                            Password must be between 8 and 20 letters.
+                        </span>
+                    </div>
+
+                    <div class="form-floating ">
+                        <input type="password" class="form-control" id="conPassSignUp" placeholder="conPassword">
+                        <label for="conPassSignUp">Confirm Password</label>
+                    </div>
+                    <div id="conPassSignUpInvalid" class=" d-none">
+                        <span class="text-danger">
+                            Retype your password !
+                        </span>
+                    </div>
+                    <button type="button" class="form-btn mt-3" id="registerBtn">Sign Up</button>
+                </form>
+            </div>
+
+            <div class="form-container sign-in-container">
+                <form id="login-from">
+                    <h2>Sign in</h2>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="emailSignIn" placeholder="Email">
+                        <label for="emailSignIn">E-mail / Username</label>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="passwordSignIn" placeholder="Password">
+                        <label for="passwordSignIn">Password</label>
+                    </div>
+
+                    <div class="form-check form-switch text-center">
+                        <input class="form-check-input" type="checkbox" role="switch" id="stayLoggedBtn">
+                        <label class="form-check-label ms-2" for="stayLoggedBtn">Stay Logged.</label>
+                    </div>
+
+                    <button type="button" class="form-btn mt-3" id="loginBtn">Sign In</button>
+                </form>
+            </div>
+
+            <div class="overlay-container">
+                <div class="overlay">
+
+                    <div class="overlay-panel overlay-left">
+                        <h2>Welcome Back!</h2>
+                        <p>One of our family ?, Log-in now!</p>
+                        <button class="form-btn ghost" id="signIn">Sign In</button>
+                    </div>
+
+                    <div class="overlay-panel overlay-right">
+                        <h2>Hello, Friend!</h2>
+                        <p>Don't Have an account?</p>
+                        <button class="form-btn ghost" id="signUp">Sign Up Now</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!------- Reports Modals  ------->
+
+    <!-- Register's -->
+    <div class="modal fade" id="signUpErrorModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h2 class="modal-title text-danger text-center mb-3"><i
+                            class="fa-solid fa-triangle-exclamation fa-shake"></i></h2>
+                    <h4>Account details is not valid, Please follow the rules below and don't leave it empty:</h4>
+                </div>
+                <div class="modal-body">
+                    <h6><i class="fa-solid fa-circle-arrow-right text-danger"></i> Must enter Name starts with an
+                        uppercase letter - limits: 3words(3-10 letters each).</h6>
+                    <h6><i class="fa-solid fa-circle-arrow-right text-danger"></i> Must enter valid E-mail or a username
+                        between 3 and 20 letters.</h6>
+                    <h6><i class="fa-solid fa-circle-arrow-right text-danger"></i> Must enter Password must be between 8
+                        and 20 letters.</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="duplicateErrorModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h2 class="modal-title text-danger text-center mb-3"><i
+                            class="fa-solid fa-triangle-exclamation fa-shake"></i></h2>
+                    <h4>This Email / username is taken and already registered.</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signUpSuccessModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <h2 class="modal-title text-success mb-3"><i class="fa-regular fa-circle-check fa-bounce"></i></h2>
+                    <h4>Account Registered Successfully</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login's -->
+    <div class="modal fade" id="emptyErrorModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <h2 class="modal-title text-danger text-center mb-3"><i
+                            class="fa-solid fa-triangle-exclamation fa-shake"></i></h2>
+                    <h4>Don't Leave Empty Fields Behind 🙄</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="incorrectErrorModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <h2 class="modal-title text-danger text-center mb-3"><i
+                            class="fa-solid fa-triangle-exclamation fa-shake"></i></h2>
+                    <h4>the Email/Username or the password you have entered is incorrect</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="signInSuccessModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body text-center">
+                    <h2 class="modal-title text-success mb-3"><i class="fa-regular fa-circle-check fa-bounce"></i></h2>
+                    <h4>Let's Goooo</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/login.js"></script>
+
+</body>
+
+</html>
